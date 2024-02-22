@@ -1,0 +1,40 @@
+name:                comp1100-assignment2
+synopsis:            COMP1100 Assignment 2 - Turtle Graphics
+version:             0.2.0.0
+license:             AllRightsReserved
+author:              Zofia Francis
+maintainer:          zofia.francis@anu.edu.au
+copyright:           2023 The Australian National University
+category:            Graphics
+build-type:          Simple
+cabal-version:       >=1.10
+extra-source-files:  README.md
+
+library
+  exposed-modules:     Turtle
+                     , TestPatterns
+  build-depends:       base >= 4.8 && < 5
+                     , codeworld-api >= 0.6.0 && <= 0.8.1
+  hs-source-dirs:      src
+  ghc-options:         -Wall
+  default-language:    Haskell2010
+
+executable turtle
+  main-is:             Main.hs
+  build-depends:       base >= 4.7 && < 5
+                     , codeworld-api >= 0.3.1 && <= 0.8.1
+                     , comp1100-assignment2
+  hs-source-dirs:      app
+  ghc-options:         -threaded -Wall
+  default-language:    Haskell2010
+
+test-suite turtle-test
+  type:                exitcode-stdio-1.0
+  main-is:             TurtleTest.hs
+  other-modules:       Testing
+  build-depends:       base >= 4.7 && < 5
+                     , codeworld-api >= 0.3.1 && <= 0.8.1
+                     , comp1100-assignment2
+  hs-source-dirs:      test
+  ghc-options:         -threaded -Wall
+  default-language:    Haskell2010
